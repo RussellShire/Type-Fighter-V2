@@ -1,21 +1,15 @@
-import React, { useState } from "react";
-// Test comment
-const Input = () => {
-    const [text, setText] = useState('')
+import React from "react";
+const Input = ({onChangeText, text}) => {
 
-    const onChange = (e) => {
-        setText(e)
-    }
 
     return (
         <>
-            <p>{text}</p>
             <input
                 type='text'
                 className='form-control'
                 placeholder='Attack!'
                 value={text}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={(e) => onChangeText(e.target.value)}
                 autoFocus
             />
         </>
