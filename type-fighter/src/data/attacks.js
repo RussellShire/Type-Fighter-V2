@@ -4,8 +4,8 @@ const attacks = {
         accuracy: 8,
     },
     kick: {
-        power: 5,
-        accuracy: 7,
+        power: 6,
+        accuracy: 6,
     }
 }
 
