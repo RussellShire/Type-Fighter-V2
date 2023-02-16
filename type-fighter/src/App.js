@@ -2,15 +2,12 @@ import './App.css';
 import React, { useState } from "react";
 import Input from "./components/Input";
 import attacks from "./data/attacks";
-
-import ken1 from "../src/assets/images/ken-punch_01.png"
-import kenPunch2 from "../src/assets/images/ken-punch_02.png"
-import kenKick2 from "../src/assets/images/ken-kick_02.png"
-import kenKick3 from "../src/assets/images/ken-kick_03.png"
+import characterImagery from "./data/imageArrays";
 
 function App() {
+    const [character, setCharacter] = useState('ryu')
     const [text, setText] = useState('')
-    const [image, setImage] = useState(ken1)
+    const [image, setImage] = useState(characterImagery[character]['rest'])
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -20,31 +17,21 @@ function App() {
             setImage(imageArray[i])
             await sleep(100)
        }
-       setImage(ken1)
+       setImage(characterImagery[character]['rest'])
     }
-
-    const kenPunchImageArray = [kenPunch2]
-    const kenKickImageArray = [kenKick2, kenKick3, kenKick2]
-
     const onChangeText = (e) => {
         const input = e.toLowerCase()
 
         if(attacks.hasOwnProperty(input)){ // look through the attacks object for key
+
             // console.log(attacks[input].power) // access a value on the nested object
+
             setText('') // reset the input ready to attack again
-
-            if(input === "punch"){
-                imageLoader(kenPunchImageArray)
-            }
-            if(input === "kick"){
-                imageLoader(kenKickImageArray)
-            }
-
+            imageLoader(characterImagery[character][input])
         } else {
             setText(e)
         }
     }
-    // const image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png"
 
     return (
         <div className="App">
