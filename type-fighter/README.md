@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Changing git email
+git config --global user.email "EMAIL@EMAIL.COM"
+Must be done to get Greenies on my github! Change back to work email after
+
 ## Available Scripts
 
 In the project directory, you can run:

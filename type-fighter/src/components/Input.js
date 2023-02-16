@@ -1,7 +1,6 @@
 import React from "react";
 const Input = ({onChangeText, text}) => {
 
-
     return (
         <>
             <input
