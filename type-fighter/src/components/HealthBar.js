@@ -1,11 +1,11 @@
 import React from 'react'
 import '../App.css'
-const HealthBar = () => {
-    const health = 70 // placeholder for prop
-    const healthCss = "translateX(-" + 100 - health + "%)"
+const HealthBar = ({health}) => {
+    // const health = 70 // placeholder for prop
+    const healthCss = "translateX(-" + (100 - parseInt(health)) + "%)"
 
     return (
-        <div class="health-bar-outer"
+        <div className="health-bar-outer"
              style={{
                  width:"10rem",
                  height:"1rem",
@@ -13,15 +13,13 @@ const HealthBar = () => {
                  border:"black solid",
                  overflow:"hidden",
         }}>
-            <div class="health-bar-inner"
+            <div className="health-bar-inner"
                  style={{
                      width:"10rem",
                      height:"1rem",
                      transform:healthCss,
-                     // transform: "translateX(-50%)",
                      backgroundColor:"red"
                  }}>
-
             </div>
         </div>
     )
