@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState } from "react";
 import Input from "./components/Input";
-import attacks from "./data/attacks";
+import {attacks, validAttacks, validAttacksLower} from "./data/attacks";
 import characterImagery from "./data/characterImagery";
 
 function App() {
-    const [character, setCharacter] = useState('ryu')
+    const [character, setCharacter] = useState('ken')
     const [text, setText] = useState('')
     const [image, setImage] = useState(characterImagery[character]['rest'])
 
@@ -16,11 +16,13 @@ function App() {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    async function imageLoader(imageArray, input) {
+    async function imageLoader(attack, character) {
+        const imageArray = characterImagery[character][attack]['imageArray']
+
         for (let i = 0; i < imageArray.length; i++) {
             setImage(imageArray[i])
-            if (i == characterImagery[character][input]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
-                console.log("hit!")
+            if (i == characterImagery[character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
+                console.log("hit!!")
             //     PUT LOGIC FOR HIT HERE
             }
             await sleep(100)
@@ -36,12 +38,13 @@ function App() {
     const onChangeText = (e) => {
         const input = e.toLowerCase()
 
-        if(attacks.hasOwnProperty(input)){ // look through the attacks object for key
 
-            // console.log(attacks[input].power) // access a value on the nested object
+        if(validAttacksLower.includes(input)){ // look through the lower case attack keys for input
+            // convert the input back into camelCase for accessing object
+            const attack = validAttacks[validAttacksLower.indexOf(input)]
 
-            setText('') // reset the input ready to attack again
-            imageLoader(characterImagery[character][input]['imageArray'], input)
+            setText('')
+            imageLoader(attack, character)
         } else {
             setText(e)
         }
