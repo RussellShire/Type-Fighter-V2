@@ -8,16 +8,18 @@ const HealthBar = ({health}) => {
         <div className="health-bar-outer"
              style={{
                  width:"10rem",
-                 height:"1rem",
+                 height:"1.5rem",
                  margin:"1rem",
                  border:"black solid",
                  overflow:"hidden",
+                 borderRadius:"0.5rem"
         }}>
             <div className="health-bar-inner"
                  style={{
                      width:"10rem",
-                     height:"1rem",
+                     height:"1.5rem",
                      transform:healthCss,
+                     transition:"1s",
                      backgroundColor:"red"
                  }}>
             </div>
