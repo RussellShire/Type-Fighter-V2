@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Input from "./components/Input";
 import {attacks, validAttacks, validAttacksLower} from "./data/attacks";
 import characterImagery from "./data/characterImagery";
+import HealthBar from "./components/HealthBar";
 
 function App() {
     const [character, setCharacter] = useState('ken')
@@ -52,6 +53,7 @@ function App() {
 
     return (
         <div className="App">
+            <HealthBar />
             <img src={ image } alt="ken" style={{height:250}} />
             <div>
                 <Input onChangeText={onChangeText} text={text} />
