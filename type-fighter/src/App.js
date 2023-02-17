@@ -59,6 +59,7 @@ function App() {
         <div className="App">
             <HealthBar health={playerHealth} />
             <img src={ image } alt="ken" style={{height:250}} />
+
             <div>
                 <Input onChangeText={onChangeText} text={text} />
             </div>

@@ -12,7 +12,8 @@ const HealthBar = ({health}) => {
                  margin:"1rem",
                  border:"black solid",
                  overflow:"hidden",
-                 borderRadius:"0.5rem"
+                 borderRadius:"0.5rem",
+                 backgroundColor:"red",
         }}>
             <div className="health-bar-inner"
                  style={{
@@ -20,7 +21,7 @@ const HealthBar = ({health}) => {
                      height:"1.5rem",
                      transform:healthCss,
                      transition:"1s",
-                     backgroundColor:"red"
+                     backgroundColor:"yellow"
                  }}>
             </div>
         </div>
