@@ -10,13 +10,25 @@ import ryuKick3 from "../assets/images/ryu-kick_03.png"
 const characterImagery = {
     ken: {
         rest: kenPunch1,
-        punch: [kenPunch1, kenPunch2],
-        kick: [kenKick2, kenKick3, kenKick2],
+        punch: {
+            imageArray: [kenPunch1, kenPunch2],
+            hitFrame: 1, // counting from zero which image in the array connects with the opponent
+        },
+        kick: {
+            imageArray: [kenKick2, kenKick3, kenKick2],
+            hitFrame: 1,
+        },
     },
     ryu: {
         rest: ryuPunch1,
-        punch: [ryuPunch1, ryuPunch2],
-        kick: [ryuKick2, ryuKick3, ryuKick2],
+        punch: {
+            imageArray: [ryuPunch1, ryuPunch2],
+            hitFrame: 1, // counting from zero which image in the array connects with the opponent
+        },
+        kick: {
+            imageArray: [ryuKick2, ryuKick3, ryuKick2],
+            hitFrame: 1,
+        },
     },
 }
 
