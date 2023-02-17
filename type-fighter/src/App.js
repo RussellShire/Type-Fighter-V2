@@ -24,7 +24,7 @@ function App() {
         for await (const image of imageArray) {
             setImage(image)
             const imageIndex = imageArray.indexOf(image)
-            if (imageIndex == characterImagery[character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
+            if (imageIndex === characterImagery[character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
                 console.log("hit!!")
                 // Logic for hit
                 attackAttempt(attack)
