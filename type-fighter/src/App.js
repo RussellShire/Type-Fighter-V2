@@ -2,23 +2,33 @@ import './App.css';
 import React, { useState } from "react";
 import Input from "./components/Input";
 import attacks from "./data/attacks";
-import characterImagery from "./data/imageArrays";
+import characterImagery from "./data/characterImagery";
 
 function App() {
-    const [character, setCharacter] = useState('ryu')
+    const [character, setCharacter] = useState('ken')
     const [text, setText] = useState('')
     const [image, setImage] = useState(characterImagery[character]['rest'])
 
+    // sleep and imageLoader work together to display arrays of imagery one after another with a delay between them
+    // to put into a new file it'll need to be refactored to have the setImage passed in
+    // (which will also allow it to be reusable for two different characters on screen)
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
     async function imageLoader(imageArray) {
-       for (let i = 0; i < imageArray.length; i++) {
+        for (let i = 0; i < imageArray.length; i++) {
             setImage(imageArray[i])
             await sleep(100)
-       }
-       setImage(characterImagery[character]['rest'])
+        }
+        setImage(characterImagery[character]['rest'])
     }
+
+    function attackAttempt(input){
+        const attackPower = attacks[input].power
+        const attackAccuracy = attacks[input].accuracy
+    }
+
     const onChangeText = (e) => {
         const input = e.toLowerCase()
 
@@ -35,7 +45,7 @@ function App() {
 
     return (
         <div className="App">
-            <img src={image} alt="ken" style={{height:250}} />
+            <img src={ image } alt="ken" style={{height:250}} />
             <div>
                 <Input onChangeText={onChangeText} text={text} />
             </div>
