@@ -26,29 +26,29 @@ function App() {
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
-
-   async function imageLoader(attack) {
-        const imageArray = characterImagery[fighter.player.character][attack]['imageArray']
+    async function imageLoader(attack, attacker="player") {
+        const character = fighter[attacker].character
+        const imageArray = characterImagery[character][attack]['imageArray']
 
         for await (const image of imageArray) {
-            setPlayerImage(image)
+            attacker == "player" ? setPlayerImage(image) : setOpponentImage(image)
 
             const imageIndex = imageArray.indexOf(image)
-            if (imageIndex === characterImagery[fighter.player.character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
-                console.log("hit!!")
+            if (imageIndex === characterImagery[character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
                 // Logic for hit
-                attackAttempt(attack)
+                attackAttempt(attack, attacker)
             }
-           await sleep(100)
+            await sleep(100)
         }
-        setPlayerImage(characterImagery[fighter.player.character]['rest'])
+        attacker === "player" ? setPlayerImage(characterImagery[character]['rest']) : setOpponentImage(characterImagery[character]['rest'])
     }
 
-    function attackAttempt(attack){
+    function attackAttempt(attack, attacker){
         const attackPower = attacks[attack].power
-        const attackAccuracy = attacks[attack].accuracy
+        // const attackAccuracy = attacks[attack].accuracy
+        const attackTarget = attacker === "player" ? "opponent" : "player"
 
-        setFighter({...fighter, health: fighter.opponent.health -= attackPower})
+        setFighter({...fighter, health: fighter[attackTarget].health -= attackPower})
     }
 
     const onChangeText = (e) => {
