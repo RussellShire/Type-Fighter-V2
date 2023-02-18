@@ -6,12 +6,19 @@ import characterImagery from "./data/characterImagery";
 import HealthBar from "./components/HealthBar";
 
 function App() {
-    const [player, setPlayer] = useState({
-        health:100,
-        character: "ken",
+    const [fighter, setFighter] = useState({
+        player: {
+            health: 100,
+            character: "ryu",
+        },
+        opponent: {
+            health: 100,
+            character: "ken",
+        },
     })
     const [text, setText] = useState('')
-    const [image, setImage] = useState(characterImagery[player.character]['rest'])
+    const [playerImage, setPlayerImage] = useState(characterImagery[fighter.player.character]['rest'])
+    const [opponentImage, setOpponentImage] = useState(characterImagery[fighter.opponent.character]['rest'])
 
     // sleep and imageLoader work together to display arrays of imagery one after another with a delay between them
     // to put into a new file it'll need to be refactored to have the setImage or character passed in
@@ -21,26 +28,27 @@ function App() {
     }
 
    async function imageLoader(attack) {
-        const imageArray = characterImagery[player.character][attack]['imageArray']
+        const imageArray = characterImagery[fighter.player.character][attack]['imageArray']
 
         for await (const image of imageArray) {
-            setImage(image)
+            setPlayerImage(image)
+
             const imageIndex = imageArray.indexOf(image)
-            if (imageIndex === characterImagery[player.character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
+            if (imageIndex === characterImagery[fighter.player.character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
                 console.log("hit!!")
                 // Logic for hit
                 attackAttempt(attack)
             }
            await sleep(100)
         }
-        setImage(characterImagery[player.character]['rest'])
+        setPlayerImage(characterImagery[fighter.player.character]['rest'])
     }
 
     function attackAttempt(attack){
         const attackPower = attacks[attack].power
         const attackAccuracy = attacks[attack].accuracy
 
-        setPlayer({...player, health: player.health -= attackPower})
+        setFighter({...fighter, health: fighter.opponent.health -= attackPower})
     }
 
     const onChangeText = (e) => {
@@ -59,9 +67,16 @@ function App() {
 
     return (
         <div className="App">
-            <HealthBar health={player.health} />
-            <img src={ image } alt={player.character} style={{height:250}} />
-
+            <div className="fighters-container">
+                <div className="player-container">
+                    <HealthBar health={fighter.player.health} />
+                    <img src={ playerImage } alt={fighter.player.character} style={{height:250}} />
+                </div>
+                <div className="opponent-container">
+                    <HealthBar health={fighter.opponent.health} />
+                    <img src={ opponentImage } alt={fighter.opponent.character} style={{height:250, transform: "scaleX(-1)"}} />
+                </div>
+            </div>
             <div>
                 <Input onChangeText={onChangeText} text={text} />
             </div>
