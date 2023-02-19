@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./components/Input";
 import {attacks, validAttacks, validAttacksLower} from "./data/attacks";
 import characterImagery from "./data/characterImagery";
@@ -20,6 +20,10 @@ function App() {
     const [playerImage, setPlayerImage] = useState(characterImagery[fighter.player.character]['rest'])
     const [opponentImage, setOpponentImage] = useState(characterImagery[fighter.opponent.character]['rest'])
 
+    useEffect(() => {
+        opponentTimer()
+    }, [])
+
     // sleep and imageLoader work together to display arrays of imagery one after another with a delay between them
     // to put into a new file it'll need to be refactored to have the setImage or character passed in
     // (which will also allow it to be reusable for two different characters on screen)
@@ -31,7 +35,7 @@ function App() {
         const imageArray = characterImagery[character][attack]['imageArray']
 
         for await (const image of imageArray) {
-            attacker == "player" ? setPlayerImage(image) : setOpponentImage(image)
+            attacker === "player" ? setPlayerImage(image) : setOpponentImage(image)
 
             const imageIndex = imageArray.indexOf(image)
             if (imageIndex === characterImagery[character][attack]['hitFrame']){ // A hit is counted at the correct frame, so it can be interrupted
@@ -41,6 +45,20 @@ function App() {
             await sleep(100)
         }
         attacker === "player" ? setPlayerImage(characterImagery[character]['rest']) : setOpponentImage(characterImagery[character]['rest'])
+    }
+
+    function opponentMove(){
+        const attackCount = validAttacks.length
+        const randomNumber = Math.floor(Math.random() * attackCount)
+        const opponentAttack = validAttacks[randomNumber]
+
+        imageLoader(opponentAttack, "opponent")
+    }
+
+    async function opponentTimer(){
+        opponentMove()
+        await sleep(3000)
+        opponentTimer()
     }
 
     function attackAttempt(attack, attacker){
