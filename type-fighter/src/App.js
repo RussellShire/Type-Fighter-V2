@@ -20,9 +20,23 @@ function App() {
     const [playerImage, setPlayerImage] = useState(characterImagery[fighter.player.character]['rest'])
     const [opponentImage, setOpponentImage] = useState(characterImagery[fighter.opponent.character]['rest'])
 
+    // Kicking off the opponent attack loop
     useEffect(() => {
         opponentTimer()
     }, [])
+
+    // checking victory conditions
+    useEffect(() => {
+        if(fighter.player.health <= 0) {
+            console.log("You lose!")
+        }
+    }, [fighter.player.health])
+
+    useEffect(() => {
+        if(fighter.opponent.health <= 0) {
+            console.log("You win!")
+        }
+    }, [fighter.opponent.health])
 
     // sleep and imageLoader work together to display arrays of imagery one after another with a delay between them
     // to put into a new file it'll need to be refactored to have the setImage or character passed in
@@ -56,8 +70,8 @@ function App() {
     }
 
     async function opponentTimer(){
-        opponentMove()
         await sleep(3000)
+        opponentMove()
         opponentTimer()
     }
 
