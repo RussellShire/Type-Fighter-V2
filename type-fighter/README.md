@@ -41,9 +41,11 @@ https://www.spriters-resource.com/arcade/streetfighter2/
 
 # Usage
 
-## Changing git email
-git config --global user.email "EMAIL@EMAIL.COM"
-Must be done to get Greenies on my github! Change back to work email after
+[//]: # (## Changing git email)
+
+[//]: # (git config --global user.email "EMAIL@EMAIL.COM")
+
+[//]: # (Must be done to get Greenies on my github! Change back to work email after)
 
 
 ## Available Scripts
