@@ -1,14 +1,50 @@
-# Getting Started with Create React App
+# Type Fighter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple game built in React with logic in JavaScript. A fighting game where you control your fighter using a text input.
+Basically a React form that controls an output.
+
+# Project Specification
+
+- A fighting game where you type out attacks to try and reduce a computer opponents health to zero.
+- You and the computer have a health bar that corresponds to how much health you have left.
+- Animated characters attack each other after your input.
+- The quicker you type the more damage you do, the computer will do a random attack every x seconds.
+- Attacks have a chance to miss. They do different amounts of damage. 
+- Attacks don't necessarily do the same damage each time. Broadly the longer it takes to type the more damage it should do and the more damage it does the higher chance to miss. 
+- Mobile should make the computer slower than desktop because input is harder.
+- Some attacks should be secret and human players shouldn't be able to look them up, rather discovering what is possible by typing in different attacks.
+- There could be moves like block or dodge.
+- In the future you could fight a tournament against computer characters who increase in difficulty, quicker attacks, better accuracy, stronger attacks.
+
+[//]: # (# Hosted)
+
+[//]: # ()
+[//]: # (https://russellshire.github.io/Type-Fighter-V2/)
+
+# Optional To Do
+
+-Host
+-Create random attacks from computer, pass into imageLoader
+-Handle health less than zero (win or lose)
+-Animate being hit (and attacks being interrupted)
+-Animate knockout / victory poses
+-Handle blocking?
+-Strip spaces from input
+-Add more attacks
+-Disable ctrl-v
+-Add character select
+
+## Image assets
+Credit:
+https://www.spriters-resource.com/arcade/streetfighter2/
+
+
+# Usage
 
 ## Changing git email
 git config --global user.email "EMAIL@EMAIL.COM"
 Must be done to get Greenies on my github! Change back to work email after
 
-## Image assets
-Credit:
-https://www.spriters-resource.com/arcade/streetfighter2/
 
 ## Available Scripts
 
@@ -36,43 +72,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
