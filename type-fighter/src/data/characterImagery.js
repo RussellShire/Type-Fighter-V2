@@ -20,6 +20,15 @@ import kenDefeated1 from "../assets/images/ken-defeated_01.png"
 import kenDefeated2 from "../assets/images/ken-defeated_02.png"
 import kenDefeated3 from "../assets/images/ken-defeated_03.png"
 import kenDefeated4 from "../assets/images/ken-defeated_04.png"
+import ryuVictory1 from "../assets/images/ryu-victory_01.png"
+import ryuVictory2 from "../assets/images/ryu-victory_02.png"
+import ryuVictory3 from "../assets/images/ryu-victory_03.png"
+import kenVictory1 from "../assets/images/ken-victory_01.png"
+import kenVictory2 from "../assets/images/ken-victory_02.png"
+import kenVictory3 from "../assets/images/ken-victory_03.png"
+import kenVictory4 from "../assets/images/ken-victory_04.png"
+import kenVictory5 from "../assets/images/ken-victory_05.png"
+
 
 const characterImagery = {
     ken: {
@@ -40,6 +49,10 @@ const characterImagery = {
             imageArray: [kenDefeated1, kenDefeated2, kenDefeated3, kenDefeated4],
             hitFrame: 10,
         },
+        victory: {
+            imageArray: [kenVictory1, kenVictory2, kenVictory3, kenVictory4, kenVictory5],
+            hitFrame: 10,
+        },
     },
     ryu: {
         rest: ryuPunch1,
@@ -57,6 +70,10 @@ const characterImagery = {
         },
         defeated: {
             imageArray: [ryuDefeated1, ryuDefeated2, ryuDefeated3, ryuDefeated4],
+            hitFrame: 10,
+        },
+        victory: {
+            imageArray: [ryuVictory1, ryuVictory2, ryuVictory3],
             hitFrame: 10,
         },
     },

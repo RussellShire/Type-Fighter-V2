@@ -10,10 +10,12 @@ function App() {
         player: {
             health: 100,
             character: "ryu",
+            isDefeated: false,
         },
         opponent: {
             health: 100,
             character: "ken",
+            isDefeated: false,
         },
     })
     const [text, setText] = useState('')
@@ -29,12 +31,19 @@ function App() {
     useEffect(() => {
         if(fighter.player.health <= 0) {
             console.log("You lose!")
+            setFighter({...fighter, isDefeated: fighter.player.isDefeated = true})
+            imageLoader("defeated", "player")
+            imageLoader("victory", "opponent")
         }
     }, [fighter.player.health])
 
     useEffect(() => {
         if(fighter.opponent.health <= 0) {
             console.log("You win!")
+            setFighter({...fighter, isDefeated: fighter.opponent.isDefeated = true})
+
+            imageLoader("defeated", "opponent")
+            imageLoader("victory", "player")
         }
     }, [fighter.opponent.health])
 
@@ -58,6 +67,9 @@ function App() {
             }
             await sleep(100)
         }
+        if(attack === "defeated" || attack === "victory"){
+            return
+        }
         attacker === "player" ? setPlayerImage(characterImagery[character]['rest']) : setOpponentImage(characterImagery[character]['rest'])
     }
 
@@ -71,6 +83,9 @@ function App() {
 
     async function opponentTimer(){
         await sleep(3000)
+        if(fighter.opponent.isDefeated || fighter.player.isDefeated){
+            return
+        }
         opponentMove()
         opponentTimer()
     }
@@ -84,6 +99,9 @@ function App() {
     }
 
     const onChangeText = (e) => {
+        if(fighter.opponent.isDefeated || fighter.player.isDefeated){
+            return
+        }
         const input = e.toLowerCase()
 
         if(validAttacksLower.includes(input)){ // look through the lower case attack keys for input
