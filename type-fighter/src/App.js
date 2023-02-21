@@ -145,11 +145,11 @@ function App() {
 
                 <div className="player-container">
 
-                    <img src={ playerImage } alt={fighter.player.character} style={{height:250}} />
+                    <img src={ playerImage } alt={fighter.player.character} style={{height:"40vh"}} />
                 </div>
 
                 <div className="opponent-container">
-                    <img src={ opponentImage } alt={fighter.opponent.character} style={{height:250, transform: "scaleX(-1)"}} />
+                    <img src={ opponentImage } alt={fighter.opponent.character} style={{height:"40vh", transform: "scaleX(-1)"}} />
                 </div>
             </div>
             <div className="input-container">
