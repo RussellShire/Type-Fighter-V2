@@ -7,9 +7,9 @@ const HealthBar = ({health}) => {
     return (
         <div className="health-bar-outer"
              style={{
-                 width:"10rem",
+                 width:"30%",
                  height:"1.5rem",
-                 margin:"1rem",
+                 margin:"2rem",
                  border:"black solid",
                  overflow:"hidden",
                  borderRadius:"0.5rem",
@@ -17,7 +17,7 @@ const HealthBar = ({health}) => {
         }}>
             <div className="health-bar-inner"
                  style={{
-                     width:"10rem",
+                     // width:"40%",
                      height:"1.5rem",
                      transform:healthCss,
                      transition:"1s",

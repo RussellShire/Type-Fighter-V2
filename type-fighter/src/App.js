@@ -137,14 +137,18 @@ function App() {
 
     return (
         <div className="App">
-
             <div className="fighters-container">
+                <HealthBar health={fighter.player.health} />
+                <HealthBar health={fighter.opponent.health} />
+            </div>
+            <div className="fighters-container">
+
                 <div className="player-container">
-                    <HealthBar health={fighter.player.health} />
+
                     <img src={ playerImage } alt={fighter.player.character} style={{height:250}} />
                 </div>
+
                 <div className="opponent-container">
-                    <HealthBar health={fighter.opponent.health} />
                     <img src={ opponentImage } alt={fighter.opponent.character} style={{height:250, transform: "scaleX(-1)"}} />
                 </div>
             </div>
