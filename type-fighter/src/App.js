@@ -4,6 +4,7 @@ import Input from "./components/Input";
 import {attacks, validAttacks, validAttacksLower} from "./data/attacks";
 import characterImagery from "./data/characterImagery";
 import HealthBar from "./components/HealthBar";
+import PlayAgain from "./components/PlayAgain";
 
 function App() {
     const [fighter, setFighter] = useState({
@@ -24,13 +25,15 @@ function App() {
 
     // Kicking off the opponent attack loop
     useEffect(() => {
-        opponentTimer()
-    }, [])
+        if (fighter.opponent.isDefeated === false && fighter.player.isDefeated === false) {
+            opponentTimer()
+        }
+    }, [fighter.opponent.isDefeated, fighter.player.isDefeated])
 
     // checking victory conditions
     useEffect(() => {
         if(fighter.player.health <= 0) {
-            console.log("You lose!")
+            // console.log("You lose!")
             setFighter({...fighter, isDefeated: fighter.player.isDefeated = true})
             imageLoader("defeated", "player")
             imageLoader("victory", "opponent")
@@ -39,7 +42,7 @@ function App() {
 
     useEffect(() => {
         if(fighter.opponent.health <= 0) {
-            console.log("You win!")
+            // console.log("You win!")
             setFighter({...fighter, isDefeated: fighter.opponent.isDefeated = true})
 
             imageLoader("defeated", "opponent")
@@ -115,8 +118,26 @@ function App() {
         }
     }
 
+    const onPlayAgain = () => {
+        setFighter(fighter => fighter = {
+            player: {
+                health: 100,
+                character: fighter.player.character,
+                isDefeated: false,
+            },
+            opponent: {
+                health: 100,
+                character: fighter.opponent.character,
+                isDefeated: false,
+            }
+        })
+        setPlayerImage(characterImagery[fighter.player.character]['rest'])
+        setOpponentImage(characterImagery[fighter.opponent.character]['rest'])
+    }
+
     return (
         <div className="App">
+
             <div className="fighters-container">
                 <div className="player-container">
                     <HealthBar health={fighter.player.health} />
@@ -127,8 +148,11 @@ function App() {
                     <img src={ opponentImage } alt={fighter.opponent.character} style={{height:250, transform: "scaleX(-1)"}} />
                 </div>
             </div>
-            <div>
+            <div className="input-container">
                 <Input onChangeText={onChangeText} text={text} />
+                {fighter.player.isDefeated || fighter.opponent.isDefeated ?
+                    <PlayAgain fighter={fighter} onPlayAgain={onPlayAgain} /> : ""
+                }
             </div>
         </div>
     );

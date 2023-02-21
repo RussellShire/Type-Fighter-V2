@@ -50,7 +50,7 @@ const characterImagery = {
             hitFrame: 10,
         },
         victory: {
-            imageArray: [kenVictory1, kenVictory2, kenVictory3, kenVictory4, kenVictory5],
+            imageArray: [kenVictory1, kenVictory2, kenVictory3, kenVictory3, kenVictory3, kenVictory4, kenVictory5],
             hitFrame: 10,
         },
     },
