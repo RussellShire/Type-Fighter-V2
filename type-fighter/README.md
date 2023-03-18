@@ -16,18 +16,17 @@ Basically a React form that controls an output.
 - There could be moves like block or dodge.
 - In the future you could fight a tournament against computer characters who increase in difficulty, quicker attacks, better accuracy, stronger attacks.
 
-[//]: # (# Hosted)
+# Hosted
 
-[//]: # ()
-[//]: # (https://russellshire.github.io/Type-Fighter-V2/)
+Try the game here!
+https://russellshire.github.io/Type-Fighter-V2/
 
 # Optional To Do
 
 -Host
--Create random attacks from computer, pass into imageLoader
--Handle health less than zero (win or lose)
+-slow computer on mobile
+-Add start conditions
 -Animate being hit (and attacks being interrupted)
--Animate knockout / victory poses
 -Handle blocking?
 -Strip spaces from input
 -Add more attacks

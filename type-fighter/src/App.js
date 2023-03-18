@@ -133,6 +133,7 @@ function App() {
         })
         setPlayerImage(characterImagery[fighter.player.character]['rest'])
         setOpponentImage(characterImagery[fighter.opponent.character]['rest'])
+        setText('')
     }
 
     return (
