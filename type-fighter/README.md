@@ -23,7 +23,6 @@ https://russellshire.github.io/Type-Fighter-V2/
 
 # Optional To Do
 
--Host
 -slow computer on mobile
 -Add start conditions
 -Animate being hit (and attacks being interrupted)
