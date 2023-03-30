@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Type-Fighter-V2/static/css/main.026e75a4.css",
+    "main.css": "/Type-Fighter-V2/static/css/main.619af1b8.css",
     "main.js": "/Type-Fighter-V2/static/js/main.cea723e1.js",
     "index.html": "/Type-Fighter-V2/index.html",
-    "main.026e75a4.css.map": "/Type-Fighter-V2/static/css/main.026e75a4.css.map",
+    "main.619af1b8.css.map": "/Type-Fighter-V2/static/css/main.619af1b8.css.map",
     "main.cea723e1.js.map": "/Type-Fighter-V2/static/js/main.cea723e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.026e75a4.css",
+    "static/css/main.619af1b8.css",
     "static/js/main.cea723e1.js"
   ]
 }
