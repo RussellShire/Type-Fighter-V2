@@ -3,7 +3,10 @@
 }
 
 .App {
-  text-align: center;
+  /*border: pink solid;*/
+
+  position: fixed;
+  width: 100vw;
 }
 
 .healthBarOuter {
