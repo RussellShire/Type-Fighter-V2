@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -19,9 +23,15 @@
 
 .player-container {
   /*border: yellow solid;*/
+
+  position: absolute;
+  transform: translateX(-25%);
 }
 .opponent-container {
   /*border: blue solid;*/
+
+  transform: translateX(25%);
+
 }
 
 .input-container {
