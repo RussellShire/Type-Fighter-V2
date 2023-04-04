@@ -138,19 +138,21 @@ function App() {
 
     return (
         <div className="App">
-            <div className="fighters-container">
-                <HealthBar health={fighter.player.health} />
-                <HealthBar health={fighter.opponent.health} />
-            </div>
-            <div className="fighters-container">
-
-                <div className="player-container">
-
-                    <img src={ playerImage } alt={fighter.player.character} style={{height:"40vh"}} />
+            <div className="top">
+                <div className="health-bar-container">
+                    <HealthBar health={fighter.player.health} />
+                    <HealthBar health={fighter.opponent.health} />
                 </div>
+                <div className="fighters-container">
 
-                <div className="opponent-container">
-                    <img src={ opponentImage } alt={fighter.opponent.character} style={{height:"40vh", transform: "scaleX(-1)"}} />
+                    <div className="player-container">
+
+                        <img src={ playerImage } alt={fighter.player.character} style={{height:"40vh"}} />
+                    </div>
+
+                    <div className="opponent-container">
+                        <img src={ opponentImage } alt={fighter.opponent.character} style={{height:"40vh", transform: "scaleX(-1)"}} />
+                    </div>
                 </div>
             </div>
             <div className="input-container">

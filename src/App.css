@@ -3,10 +3,17 @@
 }
 
 .App {
-  /*border: pink solid;*/
-
-  /*position: fixed;?*/
   width: 100vw;
+  overflow-y: hidden;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  /*margin-top: 1rem;*/
 }
 
 .healthBarOuter {
@@ -17,36 +24,37 @@
   background-color: black;
 }
 
-.fighters-container {
-  /*border: red solid;*/
-
+.health-bar-container {
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+}
+
+.fighters-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -3rem;
 }
 
 .player-container {
-  /*border: yellow solid;*/
-
   position: absolute;
   transform: translateX(-25%);
 }
 .opponent-container {
-  /*border: blue solid;*/
-
   transform: translateX(25%);
-
 }
 
 .input-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .play-again-button{
   display:inline-block;
   padding:0.7em 1.4em;
-  margin:0.5rem 0.3em 0.3em 0;
+  margin:15% 0.3em 0.3em 0;
   border-radius:0.15em;
   box-sizing: border-box;
   text-decoration:none;
