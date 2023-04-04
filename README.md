@@ -18,7 +18,7 @@ Basically a React form that controls an output.
 
 # Hosted
 
-Try the game here! Currently works best on desktop
+Try the game here!
 https://russellshire.github.io/Type-Fighter-V2/
 
 # Optional To Do
